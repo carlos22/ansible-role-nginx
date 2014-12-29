@@ -11,7 +11,7 @@
 
 - name: Install ngnix repo for EL 7
   yum: name=http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm state=present
-  when: ansible_os_family == "RedHat" and ansible_lsb.major_release|int == 7
+  when: ansible_os_family == 'RedHat' and ansible_distribution_version.split('.')[0]|int == 7
 
 - name: Install the nginx packages
   yum: name={{ item }} state=present
